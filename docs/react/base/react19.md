@@ -30,7 +30,7 @@ const [error, submitAction, isPending] = useActionState(
 ```
 useActionState 接受一个函数（“Action”），并返回一个被包装的用于调用的 Action。这是因为 Actions 是可以组合的。当调用被包装的 Action 时，useActionState 将返回 Action 的最后结果作为 data，以及 Action 的待定状态作为 pending。
 
-## React DOM: <form> Actions
+## React DOM:` <form>` Actions
 
 ```js
 <form action={actionFunction}>
@@ -108,8 +108,8 @@ function Page({commentsPromise}) {
 
 ## ref作为一个属性
 
-## <Context> 作为提供者 
-你可以将 <Context> 渲染为提供者，就无需再使用 <Context.Provider> 了
+## `<Context>` 作为提供者 
+你可以将 `<Context>` 渲染为提供者，就无需再使用 `<Context.Provider>` 了
 
 ## refs 支持清理函数
 
@@ -131,7 +131,7 @@ function Page({commentsPromise}) {
 
 ## 支持文档元数据
 
-当 React 渲染这个组件时，它会看到 <title>、<link> 和 <meta> 标签，并自动将它们提升到文档的 <head> 部分。通过原生支持这些元数据标签，我们能够确保它们与仅客户端应用、流式 SSR 和服务器组件一起工作。
+当 React 渲染这个组件时，它会看到 `<title>、<link> 和 <meta> `标签，并自动将它们提升到文档的 `<head>` 部分。通过原生支持这些元数据标签，我们能够确保它们与仅客户端应用、流式 SSR 和服务器组件一起工作。
 
 ## 支持样式表
 
