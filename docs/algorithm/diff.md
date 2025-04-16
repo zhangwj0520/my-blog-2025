@@ -299,7 +299,7 @@ if (shouldTrackSideEffects) {
 
 ### 结果
 
-无论是单节点还是可迭代节点的比较, 最终的目的都是生成下级子节点. 并在`reconcileChildren`过程中, 给一些有副作用的节点(新增, 删除, 移动位置等)打上副作用标记, 等待 commit 阶段(参考[fiber 树渲染](../main/commit.md))的处理.
+无论是单节点还是可迭代节点的比较, 最终的目的都是生成下级子节点. 并在`reconcileChildren`过程中, 给一些有副作用的节点(新增, 删除, 移动位置等)打上副作用标记, 等待 commit 阶段(参考fiber 树渲染)的处理.
 
 ## 总结
 

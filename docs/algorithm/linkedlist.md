@@ -81,7 +81,7 @@ function LinkedList() {
 
 ### fiber 对象
 
-在[react 高频对象](../main/object-structure.md#Fiber)中对`fiber`对象的属性做了说明, 这里列举出 4 个链表属性.
+在[react 高频对象](../react/base/object-structure.md#Fiber)中对`fiber`对象的属性做了说明, 这里列举出 4 个链表属性.
 
 1. `effect`链表(链式队列): 存储有副作用的子节点, 构成该队列的元素是`fiber`对象
 
@@ -103,7 +103,7 @@ function LinkedList() {
 
 ### Hook 对象
 
-在[react 高频对象](../main/object-structure.md#Hook)中对`Hook`对象的属性做了说明, `Hook`对象具备`.next`属性, 所以`Hook`对象本身就是链表中的一个节点.
+在[react 高频对象](../react//base/object-structure.md#Hook)中对`Hook`对象的属性做了说明, `Hook`对象具备`.next`属性, 所以`Hook`对象本身就是链表中的一个节点.
 
 此外`hook.queue.pending`也构成了一个链表, 将`hook`链表与`hook.queue.pending`链表同时表示在图中, 得到的结构如下:
 

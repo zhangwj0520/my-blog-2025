@@ -1,23 +1,24 @@
 ---
-sidebar_position: 1
 title: 两大工作循环
+group: 基本概念
+order: 1
 ---
 
 # React 工作循环 (workLoop)
 
 在前文([React 应用的宏观包结构](./macro-structure.md))中, 介绍了`react`核心包之间的依赖和调用关系, 并绘制出了概览图. 在概览图中, 可以看到有两个大的循环, 它们分别位于`scheduler`和`react-reconciler`包中:
 
-![](../../snapshots/workloop.png)
+![](../snapshots/workloop.png)
 
 本文将这两个循环分别表述为`任务调度循环`和`fiber构造循环`. 接下来从宏观角度阐述这两大循环的作用, 以及它们之间的区别和联系. 更深入的源码分析分别在`scheduler 调度机制`和`fiber 树构造`章节中详细解读.
 
 1. `任务调度循环`
 
-源码位于[`Scheduler.js`](https://github.com/facebook/react/blob/v19.1.0/packages/scheduler/src/Scheduler.js), 它是`react`应用得以运行的保证, 它需要循环调用, 控制所有任务(`task`)的调度.
+源码位于[`Scheduler.js`](https://github.com/facebook/react/blob/v17.0.2/packages/scheduler/src/Scheduler.js), 它是`react`应用得以运行的保证, 它需要循环调用, 控制所有任务(`task`)的调度.
 
 2. `fiber构造循环`
 
-源码位于[`ReactFiberWorkLoop.js`](https://github.com/facebook/react/blob/v19.1.0/packages/react-reconciler/src/ReactFiberWorkLoop.old.js), 控制 fiber 树的构造, 整个过程是一个[深度优先遍历](../../algorithm/dfs.md).
+源码位于[`ReactFiberWorkLoop.js`](https://github.com/facebook/react/blob/v17.0.2/packages/react-reconciler/src/ReactFiberWorkLoop.old.js), 控制 fiber 树的构造, 整个过程是一个[深度优先遍历](../algorithm/dfs.md).
 
 这两个循环对应的 js 源码不同于其他闭包(运行时就是闭包), 其中定义的全局变量, 不仅是该作用域的私有变量, 更用于`控制react应用的执行过程`.
 
@@ -25,9 +26,9 @@ title: 两大工作循环
 
 1. 区别
 
-   - `任务调度循环`是以`二叉堆`为数据结构(详见[react 算法之堆排序](../../algorithm/heapsort.md)), 循环执行`堆`的顶点, 直到`堆`被清空.
+   - `任务调度循环`是以`二叉堆`为数据结构(详见[react 算法之堆排序](../algorithm/heapsort.md)), 循环执行`堆`的顶点, 直到`堆`被清空.
    - `任务调度循环`的逻辑偏向宏观, 它调度的是每一个任务(`task`), 而不关心这个任务具体是干什么的(甚至可以将`Scheduler`包脱离`react`使用), 具体任务其实就是执行回调函数`performSyncWorkOnRoot`或`performConcurrentWorkOnRoot`.
-   - `fiber构造循环`是以`树`为数据结构, 从上至下执行深度优先遍历(详见[react 算法之深度优先遍历](../../algorithm/dfs.md)).
+   - `fiber构造循环`是以`树`为数据结构, 从上至下执行深度优先遍历(详见[react 算法之深度优先遍历](../algorithm/dfs.md)).
    - `fiber构造循环`的逻辑偏向具体实现, 它只是任务(`task`)的一部分(如`performSyncWorkOnRoot`包括: `fiber`树的构造, `DOM`渲染, 调度检测), 只负责`fiber`树的构造.
 
 2. 联系
