@@ -74,17 +74,23 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {
+        // {
         //   type: 'docSidebar',
         //   sidebarId: 'tutorialSidebar',
         //   position: 'left',
         //   label: 'Tutorial',
         // },
-        // {
+        {
           type: 'docSidebar',
           sidebarId: 'react',
           position: 'left',
           label: 'React',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'vue',
+          position: 'left',
+          label: 'Vue',
         },
         {
           type: 'docSidebar',
